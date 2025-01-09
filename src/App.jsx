@@ -1,11 +1,9 @@
 import './App.css'
 
 import Button from '@mui/material/Button'
-import {
-  AccessAlarm,
-  ThreeDRotation,
-  Home as HomeIcon
-} from '@mui/icons-material'
+import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
+import ThreeDRotation from '@mui/icons-material/ThreeDRotation'
+import HomeIcon from '@mui/icons-material/Home'
 import { pink } from '@mui/material/colors'
 
 function App() {
@@ -26,7 +24,7 @@ function App() {
         <Button variant="outlined" color="error">
           Error
         </Button>
-        <AccessAlarm />
+        <AccessAlarmIcon />
         <ThreeDRotation />
       </div>
 
@@ -36,7 +34,7 @@ function App() {
       <HomeIcon color="success" />
       <HomeIcon color="action" />
       <HomeIcon color="disabled" />
-      <HomeIcon sx={{ color: pink[500] }} />
+      <HomeIcon sx={{ color: pink[600] }} />
     </>
   )
 }
