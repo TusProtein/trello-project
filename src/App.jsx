@@ -26,7 +26,7 @@ function App() {
     <>
       <ModeToggle />
       <h1>Tusprotein</h1>
-      <Typography variant="h1" color="text.secondary">
+      <Typography variant="h1" color="text.primary">
         Responsive h1
       </Typography>
       <div
