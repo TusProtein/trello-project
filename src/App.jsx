@@ -6,10 +6,25 @@ import ThreeDRotation from '@mui/icons-material/ThreeDRotation'
 import HomeIcon from '@mui/icons-material/Home'
 import { pink } from '@mui/material/colors'
 import Typography from '@mui/material/Typography'
+import { useColorScheme } from '@mui/material'
+
+function ModeToggle() {
+  const { mode, setMode } = useColorScheme()
+  return (
+    <Button
+      onClick={() => {
+        setMode(mode === 'light' ? 'dark' : 'light')
+      }}
+    >
+      {mode === 'light' ? 'Turn dark' : 'Turn light'}
+    </Button>
+  )
+}
 
 function App() {
   return (
     <>
+      <ModeToggle />
       <h1>Tusprotein</h1>
       <Typography variant="h1" color="text.secondary">
         Responsive h1
