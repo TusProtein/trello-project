@@ -7,21 +7,21 @@ const theme = extendTheme({
     light: {
       palette: {
         primary: teal,
-        secondary: deepOrange,
-        text: {
-          primary: '#26a69a', // Màu chính cho text
-          secondary: '#ff7043' // Màu mong muốn cho text.secondary
-        }
+        secondary: deepOrange
+        // text: {
+        //   primary: '#26a69a', // Màu chính cho text
+        //   secondary: '#ff7043' // Màu mong muốn cho text.secondary
+        // }
       }
     },
     dark: {
       palette: {
         primary: cyan,
-        secondary: orange,
-        text: {
-          primary: '#26c6da', // Màu chính cho text
-          secondary: '#ffa726' // Màu mong muốn cho text.secondary
-        }
+        secondary: orange
+        // text: {
+        //   primary: '#26c6da', // Màu chính cho text
+        //   secondary: '#ffa726' // Màu mong muốn cho text.secondary
+        // }
       }
     }
   }
