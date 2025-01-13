@@ -1,22 +1,13 @@
-import { useState } from 'react'
-
-import './App.css'
-
-import Button from '@mui/material/Button'
-import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
-import ThreeDRotation from '@mui/icons-material/ThreeDRotation'
-import HomeIcon from '@mui/icons-material/Home'
-import { pink } from '@mui/material/colors'
-import Typography from '@mui/material/Typography'
 import FormControl from '@mui/material/FormControl'
-
-import InputLabel from '@mui/material/InputLabel'
-import Select from '@mui/material/Select'
-import MenuItem from '@mui/material/MenuItem'
-import { Box, useColorScheme } from '@mui/material'
-import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
+import LightModeIcon from '@mui/icons-material/LightMode'
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness'
+import { useColorScheme } from '@mui/material'
+import Box from '@mui/material/Box'
+import Container from '@mui/material/Container'
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
+import Select from '@mui/material/Select'
 
 function SelectMode() {
   const { mode, setMode } = useColorScheme()
@@ -73,35 +64,41 @@ function SelectMode() {
 }
 
 function App() {
+  const StyledBoxApp = {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center'
+  }
   return (
-    <>
-      <SelectMode />
-      <h1>Tusprotein</h1>
-      <Typography variant="h1" color="text.primary">
-        Responsive h1
-      </Typography>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '16px'
-        }}
+    <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
+      <Box
+        sx={(theme) => ({
+          ...StyledBoxApp,
+          height: theme.trello.appBarHeight,
+          backgroundColor: 'primary.light'
+        })}
       >
-        <Button>Secondary</Button>
-        <Button variant="contained">Success</Button>
-        <Button variant="outlined">Error</Button>
-        <AccessAlarmIcon />
-        <ThreeDRotation />
-      </div>
-
-      <HomeIcon />
-      <HomeIcon color="primary" />
-      <HomeIcon color="secondary" />
-      <HomeIcon color="success" />
-      <HomeIcon color="action" />
-      <HomeIcon color="disabled" />
-      <HomeIcon sx={{ color: pink[600] }} />
-    </>
+        <SelectMode />
+      </Box>
+      <Box
+        sx={(theme) => ({
+          ...StyledBoxApp,
+          height: theme.trello.boardBarHeight,
+          backgroundColor: 'primary.dark'
+        })}
+      >
+        Board
+      </Box>
+      <Box
+        sx={(theme) => ({
+          ...StyledBoxApp,
+          height: `calc(100vh - ${theme.trello.appBarHeight} - ${theme.trello.boardBarHeight})`,
+          backgroundColor: 'primary.main'
+        })}
+      >
+        Board Content
+      </Box>
+    </Container>
   )
 }
 
