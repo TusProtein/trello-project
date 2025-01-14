@@ -1,4 +1,4 @@
-import StyledBoxApp from '../../../styles/styledBoxApp'
+import StyledBoxApp from '~/styles/styledBoxApp'
 import Box from '@mui/material/Box'
 
 function BoardContent() {

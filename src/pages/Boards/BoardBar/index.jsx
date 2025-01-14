@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box'
-import StyledBoxApp from '../../../styles/styledBoxApp'
+import StyledBoxApp from '~/styles/styledBoxApp'
 
 function BoardBar() {
   return (
