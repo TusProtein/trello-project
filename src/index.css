@@ -2,7 +2,7 @@
   font-family: 'TikTokFont-Regular', system-ui, Avenir, Helvetica, Arial,
     sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
 
   color-scheme: light dark;
 
@@ -10,6 +10,18 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'TikTokFont-Regular', sans-serif;
+}
+
+h1 {
+  font-family: 'TikTokFont-Semibold', sans-serif;
+}
+
+h2 {
+  font-family: 'TikTokFont-Bold', sans-serif;
 }
 
 @font-face {
@@ -31,16 +43,4 @@
   src: url('/src/assets/font/TikTokFont-Semibold.woff2') format('woff2');
   font-weight: 600; /* Semibold typically has a weight of 600 */
   font-style: normal;
-}
-
-body {
-  font-family: 'TikTokFont-Regular', sans-serif;
-}
-
-h1 {
-  font-family: 'TikTokFont-Semibold', sans-serif;
-}
-
-h2 {
-  font-family: 'TikTokFont-Bold', sans-serif;
 }
