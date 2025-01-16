@@ -26,8 +26,8 @@ function ModeSelect() {
   )
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-      <InputLabel sx={{ color: 'text.primary' }} id="select-mode-label">
+    <FormControl size="small">
+      <InputLabel sx={{ color: 'primary.main' }} id="select-mode-label">
         Mode
       </InputLabel>
       <Select

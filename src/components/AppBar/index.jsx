@@ -30,7 +30,7 @@ function AppBar() {
       >
         <Box sx={{ ...StyledBoxApp, color: 'primary.main', gap: 2 }}>
           <AppsIcon />
-          <SvgIcon component={TrelloIcon} />
+          <SvgIcon component={TrelloIcon} size="small" />
           <Typography
             sx={{ fontSize: '1rem', fontWeight: 'bold', ml: '-1rem' }}
           >
@@ -51,13 +51,15 @@ function AppBar() {
             variant="outlined"
           />
           <ModeSelect />
-          <Tooltip title="Notification">
+          <Tooltip title="Notifications">
             <Badge color="secondary" variant="dot" sx={{ cursor: 'pointer' }}>
-              <NotificationsNoneIcon />
+              <NotificationsNoneIcon sx={{ color: 'primary.main' }} />
             </Badge>
           </Tooltip>
           <Tooltip title="Help">
-            <HelpOutlineIcon sx={{ cursor: 'pointer' }} />
+            <HelpOutlineIcon
+              sx={{ color: 'primary.main', cursor: 'pointer' }}
+            />
           </Tooltip>
           <Profile />
         </Box>
