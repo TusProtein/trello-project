@@ -1,5 +1,6 @@
 const StyledBoxApp = {
   display: 'flex',
-  alignItems: 'center'
+  alignItems: 'center',
+  gap: 2
 }
 export default StyledBoxApp
