@@ -17,8 +17,14 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
 import Tooltip from '@mui/material/Tooltip'
 import Profile from './Menus/Profile'
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd'
+import InputAdornment from '@mui/material/InputAdornment'
+import SearchIcon from '@mui/icons-material/Search'
+import CloseIcon from '@mui/icons-material/Close'
+import { useState } from 'react'
 
 function AppBar() {
+  const [searchText, setSearchText] = useState('')
+
   return (
     <>
       <Box
@@ -57,12 +63,41 @@ function AppBar() {
         </Box>
         <Box sx={{ ...StyledBoxApp }}>
           <TextField
+            onChange={(e) => setSearchText(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+              endAdornment: (
+                <InputAdornment position="start">
+                  <CloseIcon
+                    onClick={() => setSearchText('')}
+                    sx={{
+                      fontSize: 16,
+                      cursor: 'pointer',
+                      color: (theme) =>
+                        searchText
+                          ? theme.palette.mode === 'dark'
+                            ? 'white'
+                            : '#0000008a'
+                          : 'transparent'
+                    }}
+                  />
+                </InputAdornment>
+              )
+            }}
             size="small"
             id="standard-search"
-            label="Search field"
-            type="search"
+            value={searchText}
+            label="Search"
+            type="text"
             variant="outlined"
-            sx={{ minWidth: 120 }}
+            sx={{
+              minWidth: 120,
+              maxWidth: 180
+            }}
           />
           <ModeSelect />
           <Tooltip title="Notifications">
