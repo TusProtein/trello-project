@@ -37,9 +37,26 @@ const theme = extendTheme({
             backgroundColor: '#b2bec3',
             borderRadius: 8
           },
+          '*::-webkit-scrollbar-track': {
+            m: '0 10px'
+          },
           '*::-webkit-scrollbar-thumb:hover': {
             backgroundColor: '#636e72'
           }
+        }
+      }
+    },
+    MuiTypography: {
+      styleOverrides: {
+        body1: {
+          fontSize: '0.875rem'
+        }
+      }
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          fontSize: '0.875rem'
         }
       }
     },

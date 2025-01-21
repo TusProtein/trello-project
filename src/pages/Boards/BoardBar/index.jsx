@@ -23,7 +23,10 @@ function BoardBar() {
         ...StyledBoxApp,
         height: theme.trello.boardBarHeight,
         justifyContent: 'space-between',
-        overflowX: 'auto'
+        overflowX: 'auto',
+        '&::-webkit-scrollbar-track': {
+          m: 2
+        }
       })}
     >
       <Box sx={{ ...StyledBoxApp }}>
@@ -65,10 +68,16 @@ function BoardBar() {
 
         <AvatarGroup
           sx={{
-            '.MuiAvatar-root': {
+            '& .MuiAvatar-root': {
               width: 34,
               height: 34,
-              fontSize: 16
+              fontSize: 16,
+              border: 'none',
+              cursor: 'pointer',
+              bgcolor: '#a4b0be'
+            },
+            '&.MuiAvatarGroup-root': {
+              gap: '10px'
             }
           }}
           max={4}

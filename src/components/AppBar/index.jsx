@@ -33,7 +33,10 @@ function AppBar() {
           ...StyledBoxApp,
           height: theme.trello.appBarHeight,
           justifyContent: 'space-between',
-          overflowX: 'auto'
+          overflowX: 'auto',
+          '&::-webkit-scrollbar-track': {
+            m: 2
+          }
         })}
       >
         <Box sx={{ ...StyledBoxApp, color: 'primary.main' }}>
