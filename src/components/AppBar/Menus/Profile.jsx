@@ -23,7 +23,7 @@ export default function Profile() {
   }
   return (
     <>
-      <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+      <Box>
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}
