@@ -1,14 +1,14 @@
 const MenuBoardBar = {
-  color: 'primary.main',
+  color: 'white',
   border: 'none',
   px: '5px',
-  bgcolor: 'white',
+  bgcolor: 'primary.600',
   borderRadius: '4px',
   '& .MuiSvgIcon-root': {
-    color: 'primary.main'
+    color: 'white'
   },
   '&:hover': {
-    bgcolor: 'primary.50'
+    bgcolor: 'primary.500'
   }
 }
 
