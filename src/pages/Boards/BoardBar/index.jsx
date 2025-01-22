@@ -21,6 +21,7 @@ function BoardBar() {
       px={2}
       sx={(theme) => ({
         ...StyledBoxApp,
+        bgcolor: 'primary.600',
         height: theme.trello.boardBarHeight,
         justifyContent: 'space-between',
         overflowX: 'auto',
@@ -62,7 +63,17 @@ function BoardBar() {
         />
       </Box>
       <Box sx={{ ...StyledBoxApp }}>
-        <Button variant="outlined" startIcon={<PersonAddIcon />}>
+        <Button
+          variant="outlined"
+          sx={{
+            color: 'white',
+            borderColor: 'white',
+            '&:hover': {
+              borderColor: 'white'
+            }
+          }}
+          startIcon={<PersonAddIcon />}
+        >
           Invite
         </Button>
 
