@@ -1,4 +1,5 @@
 import MenuBoardBar from '~/styles/MenuBoardBar'
+import capitalizeFirstLetter from '~/utils/capitalizeFirstLetter'
 import avatar from '~/assets/img/IMG_2416.jpeg'
 
 import Box from '@mui/material/Box'
@@ -15,7 +16,7 @@ import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 
-function BoardBar() {
+function BoardBar({ board }) {
   return (
     <Box
       px={2}
@@ -33,16 +34,18 @@ function BoardBar() {
       <Box sx={{ ...StyledBoxApp }}>
         <Chip
           sx={MenuBoardBar}
-          label="Tusprotein"
+          label={board?.title}
           icon={<DashboardIcon />}
           clickable
         />
-        <Chip
-          sx={MenuBoardBar}
-          label="Public/Private Workspace"
-          icon={<VpnLockIcon />}
-          clickable
-        />
+        {board?.type && (
+          <Chip
+            sx={MenuBoardBar}
+            label={capitalizeFirstLetter(board?.type)}
+            icon={<VpnLockIcon />}
+            clickable
+          />
+        )}
         <Chip
           sx={MenuBoardBar}
           label="Add to Google Drive"

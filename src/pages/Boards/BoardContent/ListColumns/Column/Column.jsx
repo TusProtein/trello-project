@@ -3,22 +3,15 @@ import { useState } from 'react'
 import StyledBoxApp from '~/styles/styledBoxApp'
 
 import AddCard from '@mui/icons-material/AddCard'
-import AttachmentIcon from '@mui/icons-material/Attachment'
 import Cloud from '@mui/icons-material/Cloud'
-import CommentIcon from '@mui/icons-material/Comment'
 import ContentCopy from '@mui/icons-material/ContentCopy'
 import ContentCut from '@mui/icons-material/ContentCut'
 import ContentPaste from '@mui/icons-material/ContentPaste'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
 import DragHandle from '@mui/icons-material/DragHandle'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import GroupIcon from '@mui/icons-material/Group'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import Card from '@mui/material/Card'
-import CardActions from '@mui/material/CardActions'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
 import Divider from '@mui/material/Divider'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
@@ -27,8 +20,10 @@ import MenuItem from '@mui/material/MenuItem'
 import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
 import ListCards from './ListCards/ListCards'
+import sorts from '~/utils/sorts'
 
-function Column() {
+function Column({ column }) {
+  const orderedCards = sorts(column?.cards, column?.cardOrderIds, '_id')
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
@@ -67,7 +62,7 @@ function Column() {
             cursor: 'pointer'
           }}
         >
-          Column Title
+          {column?.title}
         </Typography>
         <Box>
           <ExpandMoreIcon
@@ -131,7 +126,7 @@ function Column() {
         </Box>
       </Box>
 
-      <ListCards />
+      <ListCards cards={orderedCards} />
 
       <Box
         id="Footer"

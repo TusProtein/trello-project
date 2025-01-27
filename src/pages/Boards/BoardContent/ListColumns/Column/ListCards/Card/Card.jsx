@@ -8,7 +8,12 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 
-function Card({ hideMedia }) {
+function Card({ card }) {
+  const showCardActions = () =>
+    !!card?.memberIds?.length ||
+    !!card?.comments?.length ||
+    !!card?.attachments?.length
+
   return (
     <MuiCard
       sx={{
@@ -17,29 +22,36 @@ function Card({ hideMedia }) {
         overflow: 'unset'
       }}
     >
-      {!hideMedia && (
+      {!!card?.cover && (
         <CardMedia
           sx={{ height: 140 }}
-          image="https://image.tienphong.vn/w890/Uploaded/2025/neg_olyrlys/2019_06_02/26_LVZH.jpg"
+          image={card?.cover}
           title="green iguana"
         />
       )}
 
       <CardContent sx={{ p: 1.5, '&:last-child': { p: 1.5 } }}>
-        <Typography>Liverpool FC</Typography>
+        <Typography>{card?.title}</Typography>
       </CardContent>
 
-      {!hideMedia && (
+      {showCardActions() && (
         <CardActions sx={{ p: '0 4px 8px 4px' }}>
-          <Button size="small" startIcon={<GroupIcon />}>
-            20
-          </Button>
-          <Button size="small" startIcon={<CommentIcon />}>
-            15
-          </Button>
-          <Button size="small" startIcon={<AttachmentIcon />}>
-            10
-          </Button>
+          {!!card?.memberIds?.length && (
+            <Button size="small" startIcon={<GroupIcon />}>
+              {card?.memberIds?.length}
+            </Button>
+          )}
+          {!!card?.comments?.length && (
+            <Button size="small" startIcon={<CommentIcon />}>
+              {card?.comments?.length}
+            </Button>
+          )}
+
+          {!!card?.attachments?.length && (
+            <Button size="small" startIcon={<AttachmentIcon />}>
+              {card?.attachments?.length}
+            </Button>
+          )}
         </CardActions>
       )}
     </MuiCard>
