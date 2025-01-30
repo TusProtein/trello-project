@@ -21,8 +21,18 @@ import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
 import ListCards from './ListCards/ListCards'
 import sorts from '~/utils/sorts'
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
 function Column({ column }) {
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: column._id })
+
+  const dndStyle = {
+    transform: CSS.Translate.toString(transform),
+    transition
+  }
+
   const orderedCards = sorts(column?.cards, column?.cardOrderIds, '_id')
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
@@ -35,6 +45,10 @@ function Column({ column }) {
 
   return (
     <Box
+      ref={setNodeRef}
+      style={dndStyle}
+      {...attributes}
+      {...listeners}
       sx={{
         minWidth: '300px',
         maxWidth: '300px',
@@ -42,7 +56,7 @@ function Column({ column }) {
           theme.palette.mode === 'dark' ? '#333643' : '#ebecf0',
         borderRadius: '6px',
         ml: 2,
-        // height: 'fit-content',
+        height: 'fit-content',
         maxHeight: (theme) =>
           `calc(${theme.trello.boardContentHeight} - ${theme.spacing(5)})`
       }}
